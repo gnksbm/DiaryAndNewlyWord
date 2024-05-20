@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lcC-13-xRq">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--감정 다이어리-->
+        <scene sceneID="PP7-fO-VJP">
+            <objects>
+                <viewController id="YIX-ox-dW0" customClass="EmotionDiaryViewControllerV1" customModule="_517_DiaryWithNewlyWord" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BLX-Oe-m3T">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="AoH-Fj-lKF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="감정 다이어리" id="wz2-Ik-aCp">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="list.dash" catalog="system" id="noS-sc-f6u">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95L-da-EYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866.4122137404579" y="-692.25352112676057"/>
+        </scene>
+        <!--신조어-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NewlyWordViewController" customModule="_517_DiaryWithNewlyWord" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQX-B2-6LD">
+                                <rect key="frame" x="20" y="79" width="390" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lfC-DC-aca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEnterPressed:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="gNX-d5-UZS"/>
+                                </connections>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="cZb-Du-SxW">
+                                <rect key="frame" x="10" y="266" width="410" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="VHL-qE-7yc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단어를 검색해보새요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTK-uJ-JiI">
+                                <rect key="frame" x="146.66666666666666" y="455.66666666666669" width="136.99999999999997" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzD-MZ-m0u">
+                                <rect key="frame" x="360.33333333333331" y="74.333333333333329" width="49.666666666666686" height="49.666666666666671"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.94610969389999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="BQX-B2-6LD" secondAttribute="height" id="0fo-AM-FAi"/>
+                                    <constraint firstAttribute="width" secondItem="uzD-MZ-m0u" secondAttribute="height" id="HiK-CT-zS9"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="textFieldEnterPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jly-9U-NfG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vTK-uJ-JiI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="92S-De-Q3Q"/>
+                            <constraint firstItem="BQX-B2-6LD" firstAttribute="trailing" secondItem="uzD-MZ-m0u" secondAttribute="trailing" id="BE7-Oa-8G2"/>
+                            <constraint firstItem="vTK-uJ-JiI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KDk-ec-We9"/>
+                            <constraint firstItem="BQX-B2-6LD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Pwv-nd-kHM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cZb-Du-SxW" secondAttribute="trailing" constant="10" id="XZH-GE-ed1"/>
+                            <constraint firstItem="BQX-B2-6LD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Yrk-QO-U8o"/>
+                            <constraint firstItem="cZb-Du-SxW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gWm-ug-BrA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BQX-B2-6LD" secondAttribute="trailing" constant="20" id="jwn-Cu-Wpa"/>
+                            <constraint firstItem="cZb-Du-SxW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mcA-g4-cxx"/>
+                            <constraint firstItem="uzD-MZ-m0u" firstAttribute="centerY" secondItem="BQX-B2-6LD" secondAttribute="centerY" id="rzT-uw-Fc2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="신조어" image="quote.bubble.rtl" catalog="system" id="wCL-Ej-7sf"/>
+                    <navigationItem key="navigationItem" id="nbI-ZU-0Cz"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="BQX-B2-6LD" id="dCS-qD-kxE"/>
+                        <outlet property="resultLabel" destination="vTK-uJ-JiI" id="8eu-No-7kv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940" y="4"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pp9-06-tOB">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lcC-13-xRq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Blg-Hs-I3a">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Xn2-B9-Bko" kind="relationship" relationship="viewControllers" id="5Y1-vg-RjH"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0dS-xq-Alm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lt6-dj-EKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14.503816793893129" y="3.5211267605633805"/>
+        </scene>
+        <!--다이어리-->
+        <scene sceneID="5a0-hZ-QPH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xn2-B9-Bko" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="다이어리" image="book.pages" catalog="system" id="5K9-Oy-bSN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HSf-AJ-q6f">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YIX-ox-dW0" kind="relationship" relationship="rootViewController" id="4Ai-wj-bPk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uC-0E-iMf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939.69465648854953" y="-692.25352112676057"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="300" height="300"/>
+        <image name="book.pages" catalog="system" width="107" height="128"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="quote.bubble.rtl" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
