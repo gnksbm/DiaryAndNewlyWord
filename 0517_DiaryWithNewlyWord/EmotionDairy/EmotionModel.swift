@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmotionModel: Hashable {
+struct EmotionModel: Hashable, Codable {
     let message: String
     let imgName: String
     let count: Int
@@ -41,4 +41,45 @@ extension EmotionModel {
         .init(message: "행복해", imgName: "slime8", count: 0),
         .init(message: "행복해", imgName: "slime9", count: 0),
     ]
+}
+
+extension Array where Element == EmotionModel {
+    private var userDefaultsKey: String {
+        "models"
+    }
+    
+    mutating func fetchModels() {
+        guard let data = UserDefaults.standard.data(forKey: userDefaultsKey)
+        else {
+            print("저장된 데이터 없음")
+            return
+        }
+        do {
+            self = try JSONDecoder().decode(
+                Self.self,
+                from: data
+            )
+        } catch {
+            print(
+                String(describing: self),
+                "디코딩 에러: \(error.localizedDescription)"
+            )
+        }
+    }
+    
+    func saveModels() {
+        do {
+            let data = try JSONEncoder().encode(self)
+            UserDefaults.standard.set(data, forKey: userDefaultsKey)
+        } catch {
+            print(
+                String(describing: self),
+                "인코딩 에러: \(error.localizedDescription)"
+            )
+        }
+    }
+    
+    func removeSavedModels() {
+        UserDefaults.standard.removeObject(forKey: userDefaultsKey)
+    }
 }
