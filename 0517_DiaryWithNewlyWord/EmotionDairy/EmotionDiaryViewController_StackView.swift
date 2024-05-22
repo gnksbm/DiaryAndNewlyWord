@@ -25,6 +25,22 @@ final class EmotionDiaryViewControllerV1: UIViewController {
         return vStackView
     }()
     
+    private lazy var resetButton = {
+        let button = UIButton()
+        button.setTitle(
+            "리셋",
+            for: .normal
+        )
+        button.addTarget(
+            self,
+            action: #selector(
+                resetButtonTapped
+            ),
+            for: .touchUpInside
+        )
+        return button
+    }()
+    
     private let toggleSwitchView = {
         let switchView = UISwitch()
         switchView.onTintColor = .black
@@ -33,6 +49,7 @@ final class EmotionDiaryViewControllerV1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        models.fetchModels()
         configureUI()
         configureNavigation()
     }
@@ -72,7 +89,8 @@ final class EmotionDiaryViewControllerV1: UIViewController {
         descriptionButton.isEnabled = false
         navigationItem.rightBarButtonItems = [
             .init(customView: toggleSwitchView),
-            descriptionButton
+            descriptionButton,
+            .init(customView: resetButton),
         ]
     }
     
@@ -110,6 +128,20 @@ final class EmotionDiaryViewControllerV1: UIViewController {
         let newEmotion = toggleSwitchView.isOn ?
         oldEmotion.randomCount() : oldEmotion.increaseCount()
         models.insert(newEmotion, at: sender.tag)
+        models.saveModels()
         (sender as? EmotionButton)?.updateUI(model: newEmotion)
+    }
+    
+    @objc private func resetButtonTapped(_ sender: UIButton) {
+        models = EmotionModel.sampleDatas
+        models.removeSavedModels()
+        vStackView.arrangedSubviews
+            .compactMap { $0 as? UIStackView }
+            .flatMap { $0.arrangedSubviews }
+            .compactMap { $0 as? EmotionButton }
+            .forEach {
+                let model = models[$0.tag]
+                $0.updateUI(model: model)
+            }
     }
 }
